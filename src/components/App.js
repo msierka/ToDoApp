@@ -75,7 +75,7 @@ class App  extends Component {
     const tasks = this.state.tasks;
     return (
       <div className='App'>
-        ToDoApp - Historia Internetu
+        <h1>ToDoApp - Historia Internetu</h1>
         <AddTask/>
         <ListTasks tasks={tasks} delete={this.deleteTask} change = {this.changeTask} />
       </div>
