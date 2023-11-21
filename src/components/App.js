@@ -3,6 +3,7 @@ import AddTask from './AddTask';
 import './App.css';
 import ListTasks from './ListTasks';
 class App  extends Component {
+  counter = 5;
   state = {  
     tasks: [
       {
@@ -48,6 +49,22 @@ class App  extends Component {
     ]
   } 
 
+  AddTask = (text,date,priorytet)=>{
+    const task = {
+        id: this.counter,
+        text,
+        date ,
+        priorytet,
+        active : true,
+        finishDate: null,
+    }
+    this.counter++;
+    this.setState(prev =>({
+      tasks : [...prev.tasks,task]
+    }))
+    return true;
+  }
+
   deleteTask = id => {
     const tasks = [...this.state.tasks];
     const filter = tasks.findIndex(task => task.id === id);
@@ -76,7 +93,7 @@ class App  extends Component {
     return (
       <div className='App'>
         <h1>ToDoApp - Historia Internetu</h1>
-        <AddTask/>
+        <AddTask add={this.AddTask}/>
         <ListTasks tasks={tasks} delete={this.deleteTask} change = {this.changeTask} />
       </div>
     );
