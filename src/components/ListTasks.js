@@ -1,7 +1,6 @@
 import React from 'react';
 import Task from './Task';
  const ListTasks = (props) => {
-    console.log('Props in ListTasks:', props);  // Dodaj ten log
     const tasks = props.tasks.map(task => <Task key={task.id} task={task} deleteTask={props.delete} changeTask ={props.change} />)
 
     return ( 
