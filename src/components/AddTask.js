@@ -22,6 +22,13 @@ const AddTask = ({ add }) => {
 
   const handleButton = () => {
     const { text, date, checked } = task;
+
+    // Dodaj walidację długości tekstu zadania
+    if (text.length < 2) {
+      alert("Tekst zadania musi mieć co najmniej 2 znaki.");
+      return; // Przerwij działanie funkcji, jeśli warunek nie jest spełniony
+    }
+
     const addSuccess = add(text, date, checked);
 
     if (addSuccess) {
